@@ -1,0 +1,59 @@
+
+use strict;
+use warnings;
+
+
+
+use ExtUtils::MakeMaker 6.30;
+
+
+
+my %WriteMakefileArgs = (
+  "ABSTRACT" => "Publish documents in new format",
+  "AUTHOR" => "Renee Baecker <module\@renee-baecker.de>",
+  "BUILD_REQUIRES" => {},
+  "CONFIGURE_REQUIRES" => {
+    "ExtUtils::MakeMaker" => "6.30"
+  },
+  "DISTNAME" => "EPublisher",
+  "EXE_FILES" => [],
+  "LICENSE" => "artistic_2",
+  "NAME" => "EPublisher",
+  "PREREQ_PM" => {
+    "File::Basename" => 0,
+    "File::Glob" => 0,
+    "File::Spec" => 0,
+    "File::Temp" => 0,
+    "IO::String" => 0,
+    "Module::Info" => "0.32",
+    "PPI" => "1.213",
+    "Pod::Text" => 0,
+    "YAML::Tiny" => 0
+  },
+  "VERSION" => "0.3",
+  "test" => {
+    "TESTS" => "t/*.t"
+  }
+);
+
+
+unless ( eval { ExtUtils::MakeMaker->VERSION(6.56) } ) {
+  my $br = delete $WriteMakefileArgs{BUILD_REQUIRES};
+  my $pp = $WriteMakefileArgs{PREREQ_PM};
+  for my $mod ( keys %$br ) {
+    if ( exists $pp->{$mod} ) {
+      $pp->{$mod} = $br->{$mod} if $br->{$mod} > $pp->{$mod};
+    }
+    else {
+      $pp->{$mod} = $br->{$mod};
+    }
+  }
+}
+
+delete $WriteMakefileArgs{CONFIGURE_REQUIRES}
+  unless eval { ExtUtils::MakeMaker->VERSION(6.52) };
+
+WriteMakefile(%WriteMakefileArgs);
+
+
+

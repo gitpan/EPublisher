@@ -1,0 +1,10 @@
+---
+Test:
+  source:
+    -
+      type: File
+      path: D:/Git/EPublisher/Backend/lib/EPublisher.pm
+  target:
+    type: EPub
+    author: Renee Baecker
+    output: ./test.epub
