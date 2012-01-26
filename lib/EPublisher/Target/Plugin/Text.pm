@@ -15,7 +15,7 @@ use EPublisher;
 use EPublisher::Target::Base;
 our @ISA = qw(EPublisher::Target::Base);
 
-our $VERSION = 0.01;
+our $VERSION = 0.02;
 our $DEBUG   = 0;
 
 sub deploy {
@@ -31,7 +31,7 @@ sub deploy {
         $output = $fh->filename;
     }
 
-    my $io     = IO::String->new( join "\n\n", @{$pods} );
+    my $io     = IO::String->new( join "\n\n", map{ $_->{pod} }@{$pods} );
     my $parser = Pod::Text->new( sentence => $sentence, width => $width );
 
     $parser->parse_from_filehandle( $io, $output );
@@ -42,7 +42,8 @@ sub deploy {
 1;
 
 
-__END__
+
+
 =pod
 
 =head1 NAME
@@ -51,13 +52,21 @@ EPublisher::Target::Plugin::Text - Use Ascii text as a target for EPublisher
 
 =head1 VERSION
 
-version 0.3
+version 0.4
 
 =head1 SYNOPSIS
 
   use EPublisher::Target;
   my $Text = EPublisher::Target->new( { type => 'Text' } );
   $Text->deploy;
+
+=head1 NAME
+
+EPublisher::Target::Plugin::Text - Use Ascii text as a target for EPublisher
+
+=head1 VERSION
+
+version 0.4
 
 =head1 METHODS
 
@@ -101,5 +110,20 @@ This is free software, licensed under:
 
   The Artistic License 2.0 (GPL Compatible)
 
+=head1 AUTHOR
+
+Renee Baecker <module@renee-baecker.de>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is Copyright (c) 2012 by Renee Baecker.
+
+This is free software, licensed under:
+
+  The Artistic License 2.0 (GPL Compatible)
+
 =cut
+
+
+__END__
 

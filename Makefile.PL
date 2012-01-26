@@ -27,10 +27,10 @@ my %WriteMakefileArgs = (
     "IO::String" => 0,
     "Module::Info" => "0.32",
     "PPI" => "1.213",
-    "Pod::Text" => 0,
+    "Pod::Text" => "3.08",
     "YAML::Tiny" => 0
   },
-  "VERSION" => "0.3",
+  "VERSION" => "0.4",
   "test" => {
     "TESTS" => "t/*.t"
   }

@@ -31,6 +31,9 @@ t/05_sources.t
 t/06_targets.t
 t/07_run_two.t
 t/08_extract_pod.t
+t/09_source_file.t
+t/10_source_file_title_pod.t
+t/11_source_dir.t
 t/95_pm_have_version.t
 t/96_pod_coverage.t
 t/97_pod.t
