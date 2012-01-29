@@ -20,7 +20,10 @@ my %WriteMakefileArgs = (
   "LICENSE" => "artistic_2",
   "NAME" => "EPublisher",
   "PREREQ_PM" => {
+    "Carp" => 0,
+    "Data::Dumper" => 0,
     "File::Basename" => 0,
+    "File::Find::Rule" => 0,
     "File::Glob" => 0,
     "File::Spec" => 0,
     "File::Temp" => 0,
@@ -30,7 +33,7 @@ my %WriteMakefileArgs = (
     "Pod::Text" => "3.08",
     "YAML::Tiny" => 0
   },
-  "VERSION" => "0.4",
+  "VERSION" => "0.41",
   "test" => {
     "TESTS" => "t/*.t"
   }

@@ -38,7 +38,7 @@ EPublisher::Target - Container for Target plugins
 
 =head1 VERSION
 
-version 0.4
+version 0.41
 
 =head1 SYNOPSIS
 
