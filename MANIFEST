@@ -5,6 +5,7 @@ META.yml
 Makefile.PL
 README
 dist.ini
+example/EBook-MOBI.pod
 example/test.pl
 example/test.pod
 example/test.yml
@@ -12,6 +13,8 @@ example/test2.pl
 example/test2.yml
 example/test3.pl
 example/test3.yml
+example/testMobi.pl
+example/testMobi.yml
 lib/EPublisher.pm
 lib/EPublisher/Config.pm
 lib/EPublisher/Source.pm
@@ -34,6 +37,7 @@ t/08_extract_pod.t
 t/09_source_file.t
 t/10_source_file_title_pod.t
 t/11_source_dir.t
+t/12_source_file_arbitrary_title.t
 t/95_pm_have_version.t
 t/96_pod_coverage.t
 t/97_pod.t

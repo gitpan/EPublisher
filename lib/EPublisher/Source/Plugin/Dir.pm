@@ -43,6 +43,9 @@ sub load_source{
             ($title) = $pod =~ m{ =head1 \s+ (.*) }x;
             $title = '' if !defined $title;
         }
+        elsif ( $options->{title} and $options->{title} ne 'pod' ) {
+            $title = $options->{title};
+        }
         
         push @pods, { pod => $pod, title => $title, filename => $filename };
     }
@@ -62,7 +65,7 @@ EPublisher::Source::Plugin::Dir - Dir source plugin
 
 =head1 VERSION
 
-version 0.41
+version 0.5
 
 =head1 SYNOPSIS
 
