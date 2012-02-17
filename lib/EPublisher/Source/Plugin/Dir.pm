@@ -13,7 +13,7 @@ use EPublisher::Utils::PPI qw(extract_pod);
 
 our @ISA = qw( EPublisher::Source::Base );
 
-our $VERSION = 0.02;
+our $VERSION = 0.03;
 
 sub load_source{
     my ($self) = @_;
@@ -65,7 +65,7 @@ EPublisher::Source::Plugin::Dir - Dir source plugin
 
 =head1 VERSION
 
-version 0.5
+version 0.6
 
 =head1 SYNOPSIS
 

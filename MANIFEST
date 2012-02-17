@@ -38,6 +38,7 @@ t/09_source_file.t
 t/10_source_file_title_pod.t
 t/11_source_dir.t
 t/12_source_file_arbitrary_title.t
+t/13_confighash.t
 t/95_pm_have_version.t
 t/96_pod_coverage.t
 t/97_pod.t
