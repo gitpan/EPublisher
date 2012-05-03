@@ -10,7 +10,7 @@ use EPublisher::Config;
 use EPublisher::Source;
 use EPublisher::Target;
 
-our $VERSION = 0.6;
+our $VERSION = 0.7;
 
 sub new{
     my ($class,%args) = @_;
@@ -133,7 +133,7 @@ EPublisher - Publish documents in new format
 
 =head1 VERSION
 
-version 0.6
+version 0.7
 
 =head1 SYNOPSIS
 

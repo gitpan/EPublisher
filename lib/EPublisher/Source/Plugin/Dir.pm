@@ -13,7 +13,7 @@ use EPublisher::Utils::PPI qw(extract_pod);
 
 our @ISA = qw( EPublisher::Source::Base );
 
-our $VERSION = 0.03;
+our $VERSION = 0.04;
 
 sub load_source{
     my ($self) = @_;
@@ -27,12 +27,12 @@ sub load_source{
         return '';
     }
     
-    my @files = File::Find::Rule->file->name( qr/\.p(?:m|od|l)\z/ )->in( $path );
+    my @files = sort File::Find::Rule->file->name( qr/\.p(?:m|od|l)\z/ )->in( $path );
     my @pods;
     
     FILE:
     for my $file ( @files ) {
-        my $pod = extract_pod( $file );
+        my $pod = extract_pod( $file, $self->_config );
         
         next FILE if !$pod;
 
@@ -65,7 +65,7 @@ EPublisher::Source::Plugin::Dir - Dir source plugin
 
 =head1 VERSION
 
-version 0.6
+version 0.7
 
 =head1 SYNOPSIS
 
