@@ -11,11 +11,40 @@ use PPI;
 our @ISA = qw(Exporter);
 
 our @EXPORT_OK = qw(
+    extract_package
     extract_pod
     extract_pod_from_code
 );
 
-our $VERSION = 0.3;
+our $VERSION = 0.4;
+
+sub extract_package {
+    my ($file, $config) = @_;
+    
+    return if !$file || ! -f $file;
+    
+    my $content;
+ 
+    if ( open my $fh, '<', $file ) {
+ 
+        if ( $config->{encoding} ) {
+            binmode $fh, ':encoding(' . $config->{encoding} . ')';
+        }
+ 
+        local $/;
+        $content = <$fh>;
+    } 
+    
+    return if !$content;
+    
+    my $parser    = PPI::Document->new( \$content );
+    
+    return if !$parser;
+    
+    my $package = $parser->find_first('PPI::Statement::Package')->namespace;
+    
+    return $package;
+}
 
 sub extract_pod {
     my ($file, $config) = @_;
@@ -70,7 +99,7 @@ EPublisher::Utils::PPI - PPI utility for EPublisher
 
 =head1 VERSION
 
-version 0.8
+version 0.9
 
 =head1 SYNOPSIS
 
@@ -107,6 +136,10 @@ Get Pod documentation from file.
 =head2 extract_pod_from_code
 
 Get the documentation of a piece of code...
+
+=head2 extract_package
+
+Get the namespace name of a package
 
 =head1 COPYRIGHT & LICENSE
 

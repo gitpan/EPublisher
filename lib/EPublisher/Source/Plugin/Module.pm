@@ -60,7 +60,7 @@ EPublisher::Source::Plugin::Module - Module source plugin
 
 =head1 VERSION
 
-version 0.8
+version 0.9
 
 =head1 SYNOPSIS
 
