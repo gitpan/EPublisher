@@ -10,7 +10,7 @@ use EPublisher::Config;
 use EPublisher::Source;
 use EPublisher::Target;
 
-our $VERSION = 0.7;
+our $VERSION = 0.8;
 
 sub new{
     my ($class,%args) = @_;
@@ -64,6 +64,7 @@ sub run{
         
         my @pods;
         for my $source ( @{$sources} ) {
+            die('No type in source.') unless (exists $source->{type});
             $self->debug('100: ' . $source->{type} );
             my $source_obj = EPublisher::Source->new( $source );
             $source_obj->publisher( $self );
@@ -133,7 +134,7 @@ EPublisher - Publish documents in new format
 
 =head1 VERSION
 
-version 0.7
+version 0.8
 
 =head1 SYNOPSIS
 

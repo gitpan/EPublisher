@@ -54,5 +54,6 @@ t/config/test2.yml
 t/config/test3.yml
 t/config/test_config.yml
 t/lib/Text.pm
+t/second_lib/AnotherText.pm
 xt/release/pod-coverage.t
 xt/release/pod-syntax.t

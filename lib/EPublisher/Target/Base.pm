@@ -44,7 +44,7 @@ EPublisher::Target::Base - Base class for Target plugins
 
 =head1 VERSION
 
-version 0.7
+version 0.8
 
 =head1 SYNOPSIS
 
