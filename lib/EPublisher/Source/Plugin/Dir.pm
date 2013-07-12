@@ -7,13 +7,14 @@ use warnings;
 
 use File::Find::Rule;
 use File::Basename;
+use List::Util qw(first);
 
 use EPublisher::Source::Base;
 use EPublisher::Utils::PPI qw(extract_pod extract_package);
 
 our @ISA = qw( EPublisher::Source::Base );
 
-our $VERSION = 0.05;
+our $VERSION = 1.0;
 
 sub load_source{
     my ($self) = @_;
@@ -41,6 +42,13 @@ sub load_source{
     
     FILE:
     for my $file ( @files ) {
+        
+        if ( $options->{exclude} ) {
+            my @excludes = ref $options->{exclude} eq 'ARRAY' ? @{ $options->{exclude} } : ($options->{exclude});
+            
+            next FILE if first{ $file =~ m{\A \Q$_\E }xms }@excludes;
+        }
+        
         my $pod = extract_pod( $file, $self->_config );
         
         next FILE if !$pod;
@@ -78,7 +86,7 @@ EPublisher::Source::Plugin::Dir - Dir source plugin
 
 =head1 VERSION
 
-version 0.9
+version 1
 
 =head1 SYNOPSIS
 

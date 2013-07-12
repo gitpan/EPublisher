@@ -29,7 +29,7 @@ EPublisher::Config - Config module for EPublisher
 
 =head1 VERSION
 
-version 0.9
+version 1
 
 =head1 SYNOPSIS
 
