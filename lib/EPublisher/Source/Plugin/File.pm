@@ -53,7 +53,7 @@ EPublisher::Source::Plugin::File - File source plugin
 
 =head1 VERSION
 
-version 1
+version 1.1
 
 =head1 SYNOPSIS
 

@@ -26,4 +26,4 @@ requires:
   PPI: 1.213
   Pod::Text: 3.08
   YAML::Tiny: 0
-version: 1
+version: 1.1

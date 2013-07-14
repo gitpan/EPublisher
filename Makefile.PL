@@ -35,7 +35,7 @@ my %WriteMakefileArgs = (
     "YAML::Tiny" => 0
   },
   "TEST_REQUIRES" => {},
-  "VERSION" => 1,
+  "VERSION" => "1.1",
   "test" => {
     "TESTS" => "t/*.t"
   }
