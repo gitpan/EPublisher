@@ -86,7 +86,7 @@ EPublisher::Source::Plugin::Dir - Dir source plugin
 
 =head1 VERSION
 
-version 1.1
+version 1.2
 
 =head1 SYNOPSIS
 

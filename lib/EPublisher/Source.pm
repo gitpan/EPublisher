@@ -38,7 +38,7 @@ EPublisher::Source - Container for Source plugins
 
 =head1 VERSION
 
-version 1.1
+version 1.2
 
 =head1 SYNOPSIS
 
